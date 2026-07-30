@@ -100,6 +100,7 @@ function renderPhotoCredit(el, info, isBR) {
 
 async function init() {
   const stage = document.getElementById("stage");
+  const loaderEl = document.getElementById("loader");
   const phraseEl = document.getElementById("phrase");
   const photoCreditEl = document.getElementById("photo-credit");
 
@@ -122,6 +123,9 @@ async function init() {
     const credits = await loadCredits();
     renderPhotoCredit(photoCreditEl, credits[chosenBackground.filename], isBR);
   }
+
+  loaderEl.classList.add("is-hidden");
+  phraseEl.classList.add("is-visible");
 }
 
 init();
